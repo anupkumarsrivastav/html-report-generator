@@ -1,0 +1,29 @@
+<div class="report-viewer" [attr.data-theme]="report?.theme || 'light'">
+    <div class="report-header" *ngIf="report">
+      <h1>{{ report.title }}</h1>
+      <h2 *ngIf="report.subtitle">{{ report.subtitle }}</h2>
+      <div class="report-meta">
+        <span *ngIf="report.author">By: {{ report.author }}</span>
+        <span *ngIf="report.publishedDate">Published: {{ report.publishedDate }}</span>
+        <button *ngIf="report.downloadEnabled" (click)="downloadReport()" class="download-btn">
+          Download
+        </button>
+      </div>
+      <p *ngIf="report.description" class="report-description">{{ report.description }}</p>
+    </div>
+    
+    <div class="report-content" *ngIf="report">
+      <div *ngFor="let section of getSortedSections()" class="report-section">
+        <h3>{{ section.title }}</h3>
+        <div class="section-content" [innerHTML]="section.content"></div>
+        
+        <div *ngFor="let chart of section.charts" class="chart-wrapper">
+          <lib-chart-viewer [config]="chart"></lib-chart-viewer>
+        </div>
+        
+        <div *ngFor="let table of section.tables" class="table-wrapper">
+          <lib-data-table [config]="table"></lib-data-table>
+        </div>
+      </div>
+    </div>
+  </div>

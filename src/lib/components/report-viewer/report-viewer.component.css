@@ -1,0 +1,126 @@
+.report-viewer {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .report-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .report-header h1 {
+    color: #1e293b;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  
+  .report-header h2 {
+    color: #475569;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .report-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .report-meta span {
+    color: #64748b;
+    font-size: 0.95em;
+    font-weight: 500;
+  }
+  
+  .download-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9em;
+  }
+  
+  .download-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+  
+  .report-description {
+    color: #475569;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+  }
+  
+  .report-content {
+    padding: 2rem;
+  }
+  
+  .report-section {
+    margin-bottom: 3rem;
+  }
+  
+  .report-section h3 {
+    color: #1e293b;
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .section-content {
+    color: #475569;
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  
+  .section-content p {
+    margin-bottom: 1rem;
+  }
+  
+  .chart-wrapper,
+  .table-wrapper {
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .report-header {
+      padding: 1.5rem;
+    }
+    
+    .report-header h1 {
+      font-size: 1.8em;
+    }
+    
+    .report-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    
+    .report-content {
+      padding: 1.5rem;
+    }
+    
+    .report-section h3 {
+      font-size: 1.5em;
+    }
+  }
