@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="demo-header">
+    <h1>{{ title }}</h1>
+    <p>Interactive Report Generation with Charts & Tables</p>
+  </div>
+
+  <div class="demo-controls">
+    <h2>Demo Controls</h2>
+    
+    <div class="control-group">
+      <label for="template-select">Choose Report Template:</label>
+      <select 
+        id="template-select" 
+        [(ngModel)]="selectedTemplate" 
+        (change)="loadTemplate(selectedTemplate)">
+        <option *ngFor="let template of templates" [value]="template.id">
+          {{ template.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <button class="btn btn-primary" (click)="generateRandomData()">
+        🎲 Generate Random Data
+      </button>
+      
+      <button class="btn btn-success" (click)="exportToHtml()">
+        📄 Export to HTML
+      </button>
+      
+      <button class="btn btn-secondary" (click)="loadTemplate(selectedTemplate)">
+        🔄 Reset Data
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="currentReport">
+    <lib-report-viewer [config]="currentReport"></lib-report-viewer>
+  </div>
+</div>

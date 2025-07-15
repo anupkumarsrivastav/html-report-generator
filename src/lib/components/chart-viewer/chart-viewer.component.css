@@ -1,0 +1,55 @@
+.chart-container {
+    background: #fafafa;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .chart-container h4 {
+    color: #1e293b;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+  }
+  
+  .chart-plot {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .chart-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .download-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9em;
+  }
+  
+  .download-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    .chart-container {
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .chart-container h4 {
+      font-size: 1.1em;
+    }
+  }
