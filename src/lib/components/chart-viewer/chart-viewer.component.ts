@@ -98,7 +98,7 @@ export class ChartViewerComponent implements OnInit, AfterViewInit, OnDestroy {
 
     return {
       id: `${this.config.id}-table`,
-      title: `${this.config.title} - Data`,
+      title: '', // No title needed since chart title is already displayed in header
       data,
       columns,
       showPagination: true,

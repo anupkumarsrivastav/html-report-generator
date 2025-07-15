@@ -11,7 +11,7 @@
       </div>
     </div>
     
-    <div *ngIf="!showAsTable" #chartDiv class="chart-plot" [style.height.px]="config.height || 400"></div>
+    <div #chartDiv class="chart-plot" [style.height.px]="config.height || 400" [style.display]="showAsTable ? 'none' : 'block'"></div>
     
     <div *ngIf="showAsTable && getTableConfig()" class="chart-data-table">
       <lib-data-table [config]="getTableConfig()!"></lib-data-table>

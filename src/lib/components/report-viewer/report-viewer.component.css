@@ -57,30 +57,7 @@
     transform: translateY(-1px);
   }
 
-  .toggle-btn {
-    background: #64748b;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.9em;
-  }
-  
-  .toggle-btn:hover {
-    background: #475569;
-    transform: translateY(-1px);
-  }
 
-  .toggle-btn.active {
-    background: #10b981;
-  }
-
-  .toggle-btn.active:hover {
-    background: #059669;
-  }
   
   .report-description {
     color: #475569;
