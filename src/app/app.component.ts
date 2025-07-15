@@ -193,7 +193,7 @@ export class AppComponent implements OnInit {
         {
           id: 'sales-overview',
           title: 'Sales Overview',
-          content: '<p>Q4 2024 demonstrated exceptional growth across multiple regions.</p>',
+          content: '<p>Q4 2024 demonstrated exceptional growth across multiple regions, with significant improvements in both revenue and market penetration.</p>',
           order: 1,
           charts: [
             {
@@ -206,7 +206,9 @@ export class AppComponent implements OnInit {
                   y: [8.2, 9.1, 10.5, 12.5],
                   name: 'Revenue (Millions $)',
                   type: 'scatter',
-                  mode: 'lines+markers'
+                  mode: 'lines+markers',
+                  line: { color: '#2ecc71', width: 3 },
+                  marker: { size: 8 }
                 }
               ],
               options: {
@@ -214,6 +216,112 @@ export class AppComponent implements OnInit {
                   title: 'Quarterly Revenue Growth',
                   xaxis: { title: 'Quarter' },
                   yaxis: { title: 'Revenue (Million $)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'regional-sales',
+              title: 'Sales by Region',
+              type: 'bar',
+              data: [
+                {
+                  x: ['North America', 'Europe', 'Asia Pacific', 'Latin America', 'Middle East & Africa'],
+                  y: [4.2, 3.8, 2.9, 1.1, 0.5],
+                  type: 'bar',
+                  name: 'Q4 2024 Sales',
+                  marker: { color: '#3498db' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Regional Sales Performance (Million $)',
+                  xaxis: { title: 'Region' },
+                  yaxis: { title: 'Sales (Million $)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'product-mix',
+              title: 'Product Category Sales Distribution',
+              type: 'pie',
+              data: [
+                {
+                  labels: ['Enterprise Software', 'Cloud Services', 'Consulting', 'Support & Maintenance', 'Hardware'],
+                  values: [35, 28, 18, 12, 7],
+                  type: 'pie',
+                  marker: {
+                    colors: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6']
+                  }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Revenue Distribution by Product Category (%)'
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'monthly-trends',
+              title: 'Monthly Sales Trends',
+              type: 'line',
+              data: [
+                {
+                  x: ['Oct 2024', 'Nov 2024', 'Dec 2024'],
+                  y: [3.8, 4.1, 4.6],
+                  name: 'Monthly Revenue',
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  line: { color: '#e67e22', width: 3 },
+                  marker: { size: 8 }
+                },
+                {
+                  x: ['Oct 2024', 'Nov 2024', 'Dec 2024'],
+                  y: [3.2, 3.5, 3.8],
+                  name: 'Previous Year',
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  line: { color: '#95a5a6', width: 2, dash: 'dash' },
+                  marker: { size: 6 }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Q4 Monthly Performance vs Previous Year',
+                  xaxis: { title: 'Month' },
+                  yaxis: { title: 'Revenue (Million $)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'top-performers',
+              title: 'Top Sales Representatives',
+              type: 'bar',
+              data: [
+                {
+                  x: ['Sarah Johnson', 'Mike Chen', 'Lisa Rodriguez', 'David Kim', 'Emma Wilson'],
+                  y: [1.8, 1.6, 1.4, 1.2, 1.0],
+                  type: 'bar',
+                  name: 'Q4 Sales',
+                  marker: { color: '#16a085' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Top 5 Sales Representatives (Million $)',
+                  xaxis: { title: 'Sales Representative' },
+                  yaxis: { title: 'Sales (Million $)' }
                 }
               },
               showDataTable: true,

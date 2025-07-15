@@ -13,6 +13,7 @@ export class ChartViewerComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('chartDiv', { static: true }) chartDiv!: ElementRef;
 
   private plotlyInstance: any;
+  showAsTable = false; // Toggle state for chart/table view
 
   ngOnInit() {
     // Component initialization
@@ -56,6 +57,10 @@ export class ChartViewerComponent implements OnInit, AfterViewInit, OnDestroy {
       layout,
       config
     );
+  }
+
+  toggleView() {
+    this.showAsTable = !this.showAsTable;
   }
 
   downloadChart() {

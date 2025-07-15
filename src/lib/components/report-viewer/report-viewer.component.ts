@@ -12,6 +12,7 @@ export class ReportViewerComponent implements OnInit, OnDestroy {
   @Input() config?: ReportConfig;
   
   report: ReportConfig | null = null;
+  showTables = false; // Flag to control table visibility
   private destroy$ = new Subject<void>();
 
   constructor(private reportService: ReportService) {}
@@ -36,6 +37,10 @@ export class ReportViewerComponent implements OnInit, OnDestroy {
 
   getSortedSections() {
     return this.report?.sections.sort((a, b) => a.order - b.order) || [];
+  }
+
+  toggleTableVisibility() {
+    this.showTables = !this.showTables;
   }
 
   downloadReport() {

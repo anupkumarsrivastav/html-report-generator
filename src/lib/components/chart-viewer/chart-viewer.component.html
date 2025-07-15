@@ -1,10 +1,19 @@
 <div class="chart-container">
-    <h4 *ngIf="config.title">{{ config.title }}</h4>
-    <div #chartDiv class="chart-plot" [style.height.px]="config.height || 400"></div>
-    <div *ngIf="config.showDataTable && getTableConfig()" class="chart-data-table">
-      <lib-data-table [config]="getTableConfig()!"></lib-data-table>
+    <div class="chart-header">
+      <h4 *ngIf="config.title">{{ config.title }}</h4>
+      <div class="chart-controls">
+        <button (click)="toggleView()" class="toggle-view-btn" [class.active]="showAsTable">
+          {{ showAsTable ? '📊 Show Chart' : '📋 Show Table' }}
+        </button>
+        <button *ngIf="config.downloadEnabled && !showAsTable" (click)="downloadChart()" class="download-btn">
+          Download Chart
+        </button>
+      </div>
     </div>
-    <div class="chart-actions" *ngIf="config.downloadEnabled">
-      <button (click)="downloadChart()" class="download-btn">Download Chart</button>
+    
+    <div *ngIf="!showAsTable" #chartDiv class="chart-plot" [style.height.px]="config.height || 400"></div>
+    
+    <div *ngIf="showAsTable && getTableConfig()" class="chart-data-table">
+      <lib-data-table [config]="getTableConfig()!"></lib-data-table>
     </div>
   </div>

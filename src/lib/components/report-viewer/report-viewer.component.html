@@ -5,6 +5,10 @@
       <div class="report-meta">
         <span *ngIf="report.author">By: {{ report.author }}</span>
         <span *ngIf="report.publishedDate">Published: {{ report.publishedDate }}</span>
+        <button (click)="toggleTableVisibility()" class="toggle-btn" 
+                [class.active]="showTables">
+          {{ showTables ? '📊 Hide Tables' : '📋 Show Tables' }}
+        </button>
         <button *ngIf="report.downloadEnabled" (click)="downloadReport()" class="download-btn">
           Download
         </button>
@@ -21,9 +25,11 @@
           <lib-chart-viewer [config]="chart"></lib-chart-viewer>
         </div>
         
-        <div *ngFor="let table of section.tables" class="table-wrapper">
-          <lib-data-table [config]="table"></lib-data-table>
-        </div>
+        <ng-container *ngIf="showTables">
+          <div *ngFor="let table of section.tables" class="table-wrapper">
+            <lib-data-table [config]="table"></lib-data-table>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
