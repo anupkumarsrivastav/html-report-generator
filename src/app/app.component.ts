@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
   templates = [
     { id: 'stunting', name: 'Stunting Trends Report' },
     { id: 'sales', name: 'Sales Performance Report' },
-    { id: 'education', name: 'Education Statistics Report' }
+    { id: 'education', name: 'Education Statistics Report' },
+    { id: 'charts', name: 'All Chart Types Demo' }
   ];
 
   constructor(private reportService: ReportService) {}
@@ -35,6 +36,9 @@ export class AppComponent implements OnInit {
         break;
       case 'education':
         this.currentReport = this.getEducationReport();
+        break;
+      case 'charts':
+        this.currentReport = this.getChartTypesDemo();
         break;
       default:
         this.currentReport = this.getStuntingReport();
@@ -369,6 +373,447 @@ export class AppComponent implements OnInit {
               showDataTable: true,
               downloadEnabled: true,
               height: 400
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  private getChartTypesDemo(): ReportConfig {
+    return {
+      title: 'Complete Chart Types Demonstration',
+      subtitle: 'All Supported Chart Types with Examples',
+      author: 'Chart Demo Team',
+      publishedDate: new Date().toLocaleDateString(),
+      description: 'Comprehensive demonstration of all supported chart types including bar, line, pie, scatter, and choropleth maps.',
+      downloadEnabled: true,
+      theme: 'light',
+      sections: [
+        {
+          id: 'bar-charts',
+          title: 'Bar Chart Variations',
+          content: '<p>Demonstrating different bar chart types: vertical, horizontal, grouped, and stacked.</p>',
+          order: 1,
+          charts: [
+            {
+              id: 'vertical-bar',
+              title: 'Vertical Bar Chart',
+              type: 'bar',
+              data: [
+                {
+                  x: ['Product A', 'Product B', 'Product C', 'Product D'],
+                  y: [20, 14, 23, 25],
+                  type: 'bar',
+                  name: 'Sales',
+                  marker: { color: '#3498db' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Product Sales (Vertical)',
+                  xaxis: { title: 'Products' },
+                  yaxis: { title: 'Sales (thousands)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'horizontal-bar',
+              title: 'Horizontal Bar Chart',
+              type: 'bar',
+              data: [
+                {
+                  x: [20, 14, 23, 25],
+                  y: ['Product A', 'Product B', 'Product C', 'Product D'],
+                  type: 'bar',
+                  name: 'Sales',
+                  orientation: 'h',
+                  marker: { color: '#e74c3c' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Product Sales (Horizontal)',
+                  xaxis: { title: 'Sales (thousands)' },
+                  yaxis: { title: 'Products' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'grouped-bar',
+              title: 'Grouped Bar Chart',
+              type: 'bar',
+              data: [
+                {
+                  x: ['Q1', 'Q2', 'Q3', 'Q4'],
+                  y: [20, 14, 23, 25],
+                  type: 'bar',
+                  name: '2023',
+                  marker: { color: '#3498db' }
+                },
+                {
+                  x: ['Q1', 'Q2', 'Q3', 'Q4'],
+                  y: [16, 18, 20, 28],
+                  type: 'bar',
+                  name: '2024',
+                  marker: { color: '#e74c3c' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Quarterly Sales Comparison',
+                  barmode: 'group',
+                  xaxis: { title: 'Quarter' },
+                  yaxis: { title: 'Sales (thousands)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'stacked-bar',
+              title: 'Stacked Bar Chart',
+              type: 'bar',
+              data: [
+                {
+                  x: ['Q1', 'Q2', 'Q3', 'Q4'],
+                  y: [20, 14, 23, 25],
+                  type: 'bar',
+                  name: 'Online',
+                  marker: { color: '#3498db' }
+                },
+                {
+                  x: ['Q1', 'Q2', 'Q3', 'Q4'],
+                  y: [16, 18, 20, 28],
+                  type: 'bar',
+                  name: 'Offline',
+                  marker: { color: '#e74c3c' }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Sales by Channel',
+                  barmode: 'stack',
+                  xaxis: { title: 'Quarter' },
+                  yaxis: { title: 'Sales (thousands)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            }
+          ]
+        },
+        {
+          id: 'line-scatter-charts',
+          title: 'Line & Scatter Chart Types',
+          content: '<p>Different variations of line and scatter charts for trend analysis.</p>',
+          order: 2,
+          charts: [
+            {
+              id: 'line-chart',
+              title: 'Single Line Chart',
+              type: 'scatter',
+              data: [
+                {
+                  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  y: [10, 15, 13, 17, 19, 22],
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  name: 'Revenue',
+                  line: { color: '#2ecc71', width: 3 },
+                  marker: { size: 8 }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Monthly Revenue Trend',
+                  xaxis: { title: 'Month' },
+                  yaxis: { title: 'Revenue (thousands)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'multiple-line-chart',
+              title: 'Multiple Line Chart',
+              type: 'scatter',
+              data: [
+                {
+                  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  y: [10, 15, 13, 17, 19, 22],
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  name: 'Revenue',
+                  line: { color: '#2ecc71', width: 3 },
+                  marker: { size: 8 }
+                },
+                {
+                  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  y: [8, 12, 11, 14, 16, 18],
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  name: 'Expenses',
+                  line: { color: '#e74c3c', width: 3 },
+                  marker: { size: 8 }
+                },
+                {
+                  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  y: [2, 3, 2, 3, 3, 4],
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  name: 'Profit',
+                  line: { color: '#3498db', width: 3 },
+                  marker: { size: 8 }
+                },
+                {
+                  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  y: [6, 9, 8, 11, 13, 15],
+                  type: 'scatter',
+                  mode: 'lines+markers',
+                  name: 'Target',
+                  line: { color: '#f39c12', width: 2, dash: 'dash' },
+                  marker: { size: 6 }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Monthly Financial Performance',
+                  xaxis: { title: 'Month' },
+                  yaxis: { title: 'Amount (thousands)' },
+                  hovermode: 'x unified'
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'scatter-chart',
+              title: 'Scatter Plot',
+              type: 'scatter',
+              data: [
+                {
+                  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                  y: [10, 15, 13, 17, 19, 22, 18, 25, 28, 32],
+                  type: 'scatter',
+                  mode: 'markers',
+                  name: 'Data Points',
+                  marker: { 
+                    size: 10, 
+                    color: '#9b59b6',
+                    opacity: 0.7
+                  }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Sales vs Marketing Spend',
+                  xaxis: { title: 'Marketing Spend (thousands)' },
+                  yaxis: { title: 'Sales (thousands)' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'bubble-chart',
+              title: 'Bubble Chart',
+              type: 'scatter',
+              data: [
+                {
+                  x: [1, 2, 3, 4, 5],
+                  y: [10, 15, 13, 17, 19],
+                  type: 'scatter',
+                  mode: 'markers',
+                  name: 'Company A',
+                  marker: { 
+                    size: [20, 30, 25, 35, 40],
+                    color: '#3498db',
+                    opacity: 0.6
+                  }
+                },
+                {
+                  x: [1.5, 2.5, 3.5, 4.5, 5.5],
+                  y: [8, 12, 16, 20, 24],
+                  type: 'scatter',
+                  mode: 'markers',
+                  name: 'Company B',
+                  marker: { 
+                    size: [15, 25, 30, 20, 45],
+                    color: '#e74c3c',
+                    opacity: 0.6
+                  }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Market Position Analysis (Bubble Size = Market Share)',
+                  xaxis: { title: 'Price' },
+                  yaxis: { title: 'Quality Score' }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            }
+          ]
+        },
+        {
+          id: 'pie-charts',
+          title: 'Pie Chart Variations',
+          content: '<p>Standard pie chart and donut chart examples.</p>',
+          order: 3,
+          charts: [
+            {
+              id: 'pie-chart',
+              title: 'Pie Chart',
+              type: 'pie',
+              data: [
+                {
+                  labels: ['Desktop', 'Mobile', 'Tablet', 'Smart TV'],
+                  values: [45, 35, 15, 5],
+                  type: 'pie',
+                  marker: {
+                    colors: ['#3498db', '#e74c3c', '#2ecc71', '#f39c12']
+                  }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Device Usage Distribution'
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            },
+            {
+              id: 'donut-chart',
+              title: 'Donut Chart',
+              type: 'pie',
+              data: [
+                {
+                  labels: ['Email', 'Social Media', 'Direct', 'Search'],
+                  values: [30, 25, 20, 25],
+                  type: 'pie',
+                  hole: 0.4,
+                  marker: {
+                    colors: ['#9b59b6', '#1abc9c', '#f39c12', '#e67e22']
+                  }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Traffic Sources (Donut)',
+                  annotations: [
+                    {
+                      font: { size: 20 },
+                      showarrow: false,
+                      text: 'Traffic',
+                      x: 0.5,
+                      y: 0.5
+                    }
+                  ]
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 400
+            }
+          ]
+        },
+        {
+          id: 'maps',
+          title: 'Map Visualizations',
+          content: '<p>Choropleth maps for geographical data visualization.</p>',
+          order: 4,
+          charts: [
+            {
+              id: 'choropleth-map',
+              title: 'Choropleth Map',
+              type: 'choropleth',
+              data: [
+                {
+                  type: 'choropleth',
+                  locationmode: 'USA-states',
+                  locations: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA'],
+                  z: [1390, 695, 1204, 912, 2704, 1528, 1123, 679, 1711, 1809],
+                  text: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
+                  colorscale: [
+                    [0, '#f7fbff'],
+                    [0.2, '#deebf7'],
+                    [0.4, '#c6dbef'],
+                    [0.6, '#9ecae1'],
+                    [0.8, '#6baed6'],
+                    [1, '#3182bd']
+                  ],
+                                     colorbar: {
+                     title: { text: 'Sales ($)' }
+                   }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'Sales by State',
+                  geo: {
+                    scope: 'usa',
+                    projection: { type: 'albers usa' },
+                    showlakes: true,
+                    lakecolor: '#ffffff'
+                  }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 500
+            },
+            {
+              id: 'world-choropleth',
+              title: 'World Choropleth Map',
+              type: 'choropleth',
+              data: [
+                {
+                  type: 'choropleth',
+                  locationmode: 'ISO-3',
+                  locations: ['USA', 'CHN', 'DEU', 'JPN', 'GBR', 'IND', 'FRA', 'ITA', 'BRA', 'CAN'],
+                  z: [21427700, 14342900, 3846400, 4938600, 2829100, 2875100, 2715500, 2103900, 1449600, 1736400],
+                  text: ['United States', 'China', 'Germany', 'Japan', 'United Kingdom', 'India', 'France', 'Italy', 'Brazil', 'Canada'],
+                  colorscale: [
+                    [0, '#fff5f0'],
+                    [0.25, '#fee0d2'],
+                    [0.5, '#fcbba1'],
+                    [0.75, '#fc9272'],
+                    [1, '#de2d26']
+                  ],
+                                     colorbar: {
+                     title: { text: 'GDP (USD)' }
+                   }
+                }
+              ],
+              options: {
+                layout: {
+                  title: 'GDP by Country',
+                  geo: {
+                    showframe: false,
+                    showcoastlines: false,
+                    projection: { type: 'natural earth' }
+                  }
+                }
+              },
+              showDataTable: true,
+              downloadEnabled: true,
+              height: 500
             }
           ]
         }

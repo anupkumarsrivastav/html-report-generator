@@ -3,7 +3,7 @@ import { Data } from 'plotly.js';
 export interface ChartConfig {
     id: string;
     title: string;
-    type: 'line' | 'bar' | 'pie' | 'scatter' | 'area';
+    type: 'line' | 'bar' | 'pie' | 'scatter' | 'area' | 'choropleth';
     data: Data[];
     options?: PlotlyOptions;
     showDataTable?: boolean;
